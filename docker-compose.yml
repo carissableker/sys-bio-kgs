@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   # BioCypher pipeline service
   sys_bio_kgs:
