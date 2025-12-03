@@ -1,0 +1,40 @@
+# Schema Configuration for sys-bio-kgs
+# Using Systems Biology Ontology (SBO) as the head ontology
+# SBO URL: https://raw.githubusercontent.com/EBI-BioModels/SBO/refs/heads/master/SBO_OWL.owl
+
+# SBGN and SBML biochemical reaction components mapped to SBO classes
+# Using SBO classes directly where they exist (no is_a if class exists in SBO)
+
+# SBML - reaction, SBGN - process
+process: # SBO_0000375: process
+  represented_as: node
+  input_label: process
+  properties:
+    name: string
+
+# SBML - compartment, SBGN - compartment
+physical compartment: # SBO_0000290: compartment
+  represented_as: node
+  input_label: compartment
+  properties:
+    name: string
+
+# SBML - speciesReference/reactant, SBGN - consumption arc
+reactant: # SBO_0000010: reactant
+  represented_as: edge
+  input_label: reactant
+  properties:
+    stoichiometry: float
+
+# SBML - speciesReference/product, SBGN - production arc
+product: # SBO_0000011: product
+  represented_as: edge
+  input_label: product
+  properties:
+    stoichiometry: float
+
+# SBML - modifierSpeciesReference, SBGN - modifier arc
+modifier: # SBO_0000019: modifier
+  represented_as: edge
+  input_label: modifier
+  properties:
